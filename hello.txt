@@ -1,7 +1,11 @@
 Hello !
 
-	The content of this repository is still not ready but I hope it will be ready soon.
-I am not currently fully satisfied with the code, but I promise I will not keep working on it and never post.
+	I recently populated the repository with finance fetching code.
+The code written in these files is using the Google Scripts and Google Sheets API and tools.
+
+Please read the HowTo.txt file for more information.
+
+I hope this code is usefull to you !
 
 Best regards,
     Mihai B.
