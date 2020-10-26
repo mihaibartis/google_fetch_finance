@@ -1,0 +1,72 @@
+README - How to use
+
+Hello and thank you for being interested in this code :D.
+The code is based on the Google Apps suite and the Yahoo Finance API from Rapid API (written by apidojo).
+The scripts which are based on the Java language (I am actualy an Embedded C programmer, so if anything seems off, sorry :P).
+In order to fetch the data from the RAPID API site, the fetch method is used.
+
+PLEASE NOTE: google scripts uses files with the extension *.gs, I pushed the code files using *.js so that I can see them in a 
+more pleasing aspect inside my NotePad++ text editor.
+
+Relevant Links:
+Google links:
+https://www.google.com/script/start/
+https://www.google.com/sheets/about/
+Rapid API links:
+https://rapidapi.com/apidojo/api/yahoo-finance1?endpoint=apiendpoint_33e0cec5-0f8a-4f9f-a6dc-018e6762fbe7
+
+Scope of code:
+This code monitors several stock prices and gives you email notifications options for when a certain price is achieved.
+
+In order to use this code you will need to:
+
+1. Start a new project in the google apps - scripts: https://www.google.com/script/start/
+	- click on star scripting
+	- click on New Project
+	- give the project a new name that has meaning to you
+	
+2. Create a new Google Sheet File in which you have at least 2 sepparate sheets:
+	- have a sheet where you will write down your target prices (you will have to do some code adjustments in the config files to have everything working correctly) - called Margin of Safety price inside the scripts
+	- have a sheet in which the script will automatically write the latest market price and latest close price - this sheet will be filled by the script
+	
+3. Create a free account on Rapid API in order to use the APIDOJO Yahoo Finance API:
+	- link here: https://rapidapi.com/apidojo/api/yahoo-finance1?endpoint=apiendpoint_33e0cec5-0f8a-4f9f-a6dc-018e6762fbe7
+	- for a free account you have a maximum of 500 requests per month
+	
+4. Copy-paste the code into your Google Scripts Project
+	- create 3 project files in your google scripts project:
+		- one file for the <main method> called, name it however you want; for me its rapid.gs
+		- one file for all configuration related variables - name it config.gs
+		- one file for alarm related procedures - name it alarm.gs
+	- copy the content from github into the relevant files:
+		- content of rapid.gs -> to <your_name>.gs
+		- content of alarm.gs -> to alarm.gs
+		- content of config.gs -> to config.gs
+ 
+5. Modify the config file in order to have your own personal data inside the file (I can't see it :P, don't worry)
+	- I published the github files with dummy KEYs and personal data, so please fill them up with data relevant to you as written in the config.gs comments
+	
+	- !!! Please note that the KEYs you insert in the config.gs files ARE PERSONAL DATA; be cautious when sharing code containing personal data !!!
+	
+	- for the "RAPID_REQUEST" constant, please generate a Rapid API request using the "GET market/v2/get-quotes" method:
+		- search in the left pane of the window here for the V2 get-quotes method and select it
+		- scroll down in the middle pane and fill in the market symbols you wish to monitor sepparated by commas
+		- click [Test Endpoint]
+		- if everything is succesfull:
+			- click Code Snippets
+			- select Java Script - fetch from the dropdown
+			- copy either the whole fetch command and paste it inside the <your_name>.gs script instead of my fetch command or copy just the first fetch text and paste it inside the RAPID_REQUEST constant
+	- copy your RAPID_API key and replace it inside the config.gs
+	- modify all other config.gs constants to suit your needs
+	
+	- please note, the number or entries represent the number of monitored stock symbols
+	
+	
+6. Run the <your_name>.gs script and see if it works, if not... start debugging :D
+	- give the appropriate permissions to run if you want to
+	- Check your google sheet to see if everything worked as expected
+	- optionally modify your margin of safety price to test the email notifications
+
+7. Set a trigger to run the script automatically using the google scripts platform
+	- go to GoogleAppsScripts -> My Triggers -> add a trigger for ProjectName
+	- check to see if the triggers are correctly loaded
